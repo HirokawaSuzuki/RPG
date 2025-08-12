@@ -1,4 +1,3 @@
-package RPG;
 import java.util.Scanner;
 
 public class Chara {
@@ -47,8 +46,13 @@ public class Chara {
                 speak("ぼうぎょだ！\n" + this.name + "の防御:");
                 break;
             case 3:
-                speak()
+                speak("逃げる");
+                break;
+            default:
+                speak("1～3で選んでください");
+                return choice(num);
         }
+        return num;
     }
 
     public void attack(Chara target){

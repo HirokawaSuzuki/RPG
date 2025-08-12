@@ -1,5 +1,3 @@
-package RPG;
-
 public class play {
     public static void main(String[] arge){
         int p_hp = 8;
