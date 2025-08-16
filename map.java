@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class map {
     public String[][] gps;
-    public int [][] mapCom;
 
     public void position(){
         String[][] gps = {
@@ -21,19 +20,6 @@ public class map {
         {"#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"},
         };
         
-        for(int i = 0; i < 13; i++){
-            for(int j = 0; j < 22; i++){
-                if(gps[i][j] == "#"){
-                    mapCom[i][j] = 1; // 壁
-                }else if(gps[i][j] == " "){
-                    mapCom[i][j] = 0; // 通路
-                }else if(gps[i][j] == "@"){
-                    mapCom[i][j] = 2; // スタート地点
-                }else if(gps[i][j] == "E"){
-                    mapCom[i][j] = 3; // ゴール地点
-                }
-            }
-        }
 
         for(int i = 0; i < 13; i++){
             for(int j = 0; j < 22; j++){
@@ -42,13 +28,6 @@ public class map {
             System.out.println("\n");
         }
 
-        for(int i = 0; i < 13; i++){
-            for(int j = 0; j < 22; j++){
-                System.out.print(mapCom[i][j]);
-            }
-            System.out.println("\n");
-        }
-        
     }
 
 
