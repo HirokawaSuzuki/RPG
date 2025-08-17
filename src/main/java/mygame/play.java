@@ -1,3 +1,4 @@
+package src.main.java.mygame;
 public class play {
     public static void main(String[] arge){
         hero kentaro = new hero("けんたろ",8,3,1);

@@ -1,3 +1,4 @@
+package src.main.java.mygame;
 public class serif {
     
     public String[] heroSerif = {

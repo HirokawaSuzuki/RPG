@@ -1,0 +1,16 @@
+[
+  {
+    "id": "line001",
+    "speaker": "老人",
+    "scene": "村の広場",
+    "text": "よぉ、旅人さん。どこから来たんだい？",
+    "choices": [
+      {"id": "choice1", "text": "遠い東の国から来ました。", "next": "line002"},
+      {"id": "choice2", "text": "ここら辺の出身です。", "next": "line003"},
+      {"id": "choice3", "text": "答えたくありません。", "next": "line004"}
+    ]
+  },
+  {"id": "line002", "speaker": "老人", "scene": "村の広場", "text": "おお、はるばる来たんだな。道中はどうだった？", "choices": []},
+  {"id": "line003", "speaker": "老人", "scene": "村の広場", "text": "そうか、なら昔話でも知ってるだろうな。", "choices": []},
+  {"id": "line004", "speaker": "老人", "scene": "村の広場", "text": "ふむ…まぁ無理に聞きはせんよ。", "choices": []}
+]

@@ -1,3 +1,4 @@
+package src.main.java.mygame;
 public class test {
     public static void main(String[] args) {
         int[][] mapCom = new int[13][22];
