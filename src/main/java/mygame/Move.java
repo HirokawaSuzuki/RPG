@@ -1,12 +1,12 @@
-package src.main.java.mygame;
+package mygame;
 import java.util.Random;
 import java.util.Scanner;
 
-public class move{
+public class Move{
 
-    map map = new map();
+    Map map = new Map();
     Random rand = new Random();
-    battle battle = new battle();
+    Battle battle = new Battle();
 
     public void walk() {
         Scanner scanner = new Scanner(System.in);

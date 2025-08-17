@@ -1,4 +1,4 @@
-package src.main.java.mygame;
+package mygame;
 import java.util.Scanner;
 
 public class Chara {

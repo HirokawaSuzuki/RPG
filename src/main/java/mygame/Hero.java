@@ -1,8 +1,8 @@
-package src.main.java.mygame;
+package mygame;
 import java.util.Scanner;
 
-public class hero extends Chara {
-    public hero(String name, int hp, int atk, int def) {
+public class Hero extends Chara {
+    public Hero(String name, int hp, int atk, int def) {
         super(name, hp, atk, def);
     }  
     

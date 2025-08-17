@@ -1,7 +1,7 @@
-package src.main.java.mygame;
+package mygame;
 import java.util.Scanner;
 
-public class map {
+public class Map {
     public String[][] gps;
 
     public void position(){
