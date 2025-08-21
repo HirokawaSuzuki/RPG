@@ -13,14 +13,21 @@ public class SerifManager {
             dialogueMap.put(line.id, line);
         }
     }
-
-    public void playScene(String startId) {
+// 8/21　Jsonのスピーカーとキャラが一致した場合キャラのクラスの関数を呼び出せるようにしたい。
+    public void playScene(String startId, List<Chara> character) {
         Scanner scanner = new Scanner(System.in);
         String currentId = startId;
 
         while (currentId != null) {
             Serif line = dialogueMap.get(currentId);
-            if (line == null) break;
+            if (line == null)
+                break;
+
+            if (line.choices.size() == 1) {
+                currentId = line.choices.get(0).next;
+
+                continue;
+            }
 
             System.out.println(line.speaker + "：「" + line.text + "」");
 
@@ -36,11 +43,12 @@ public class SerifManager {
                     System.out.println("無効な選択です。終了します。");
                     break;
                 }
-            } else {
+            }
+
+            else {
                 currentId = null;
             }
         }
         System.out.println("会話終了");
     }
 }
-
