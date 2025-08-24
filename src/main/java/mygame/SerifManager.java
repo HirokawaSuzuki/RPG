@@ -24,8 +24,8 @@ public class SerifManager {
                 break;
 
             if (line.choices.size() == 1) {
-                currentId = line.choices.get(0).next;
-
+                currentId = line.next.get(0);
+                scanner.nextLine();
                 continue;
             }
 
@@ -33,12 +33,12 @@ public class SerifManager {
 
             if (line.choices != null && !line.choices.isEmpty()) {
                 for (int i = 0; i < line.choices.size(); i++) {
-                    System.out.println((i + 1) + ". " + line.choices.get(i).text);
+                    System.out.println((i + 1) + ". " + line.choices.get(i));
                 }
                 System.out.print("選択肢番号を入力: ");
                 int choice = scanner.nextInt() - 1;
                 if (choice >= 0 && choice < line.choices.size()) {
-                    currentId = line.choices.get(choice).next;
+                    currentId = line.next.get(choice);
                 } else {
                     System.out.println("無効な選択です。終了します。");
                     break;

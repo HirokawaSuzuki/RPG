@@ -45,7 +45,7 @@ public class Hero extends Chara {
                 }
             } else if(action == 2){
                 b_def = 3;
-                this.speak("ぼうぎょ力があがった！" , this.getDef(), this.getDef()+b_def);
+                this.speak("ぼうぎょ力があがった！" );
                 this.def += b_def; // 防御力を上げる
             } else if(action == 3){
                 if(p_hp <= 5){
@@ -58,7 +58,7 @@ public class Hero extends Chara {
             }
             int lose = monster.attack(this);
             if(b_def > 0){
-                this.speak("ぼうぎょがとけた！", this.getDef(), this.getDef() - b_def);
+                this.speak("ぼうぎょがとけた！");
                 this.def -= b_def; // 防御力を元に戻す
                 b_def = 0; // 防御力のバフをリセット
             }
