@@ -1,0 +1,16 @@
+[
+  {
+    "id": "scene1",
+    "title": "村の広場",
+    "participants": ["けんたろ"],
+    "enemies": ["老人"],
+    "startDialogue": "oldman001"
+  },
+  {
+    "id": "scene2",
+    "title": "戦闘",
+    "participants": ["けんたろ"],
+    "enemies": ["老人"],
+    "startDialogue": "battle001"
+  }
+]

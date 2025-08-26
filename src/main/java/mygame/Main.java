@@ -6,13 +6,18 @@ public class Main {
     public static void main(String[] args) {
         List<Serif> dialogues = SerifReader.load("/dialogues.json");
         if (dialogues == null) {
-            System.out.println("JSONの読み込みに失敗しました。");
+            System.err.println("JSONの読み込みに失敗しました。");
             return;
         }
-        System.out.println("JSON読み込み成功。台詞数: " + dialogues.size());
+        System.err.println("JSON読み込み成功。台詞数: " + dialogues.size());
         List<Chara> allChars = CharaReader.load("/characters.json");
         if (allChars == null) {
-            System.out.println("キャラクターJSONの読み込みに失敗");
+            System.err.println("キャラクターJSONの読み込みに失敗");
+            return;
+        }
+        List<Scene> scenes = SceneReader.load("/scenes.json");
+        if (scenes == null) {
+            System.err.println("シーンJSONの読み込みに失敗");
             return;
         }
 
