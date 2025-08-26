@@ -1,5 +1,6 @@
 package mygame;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,17 +14,34 @@ public class SerifManager {
             dialogueMap.put(line.id, line);
         }
     }
-// 8/21　Jsonのスピーカーとキャラが一致した場合キャラのクラスの関数を呼び出せるようにしたい。
-    public void playScene(String startId, List<Chara> character) {
+
+    // 8/21 Jsonのスピーカーとキャラが一致した場合キャラのクラスの関数を呼び出せるようにしたい。
+    public void playScene(String startId, List<Chara> characters) {
         Scanner scanner = new Scanner(System.in);
         String currentId = startId;
 
         while (currentId != null) {
             Serif line = dialogueMap.get(currentId);
+            for (Chara c : characters) {
+                if (line.speaker.equals(c.name)) {
+                    try {
+                        // セリフ内容と同じ名前のメソッドを探す
+                        Method method = c.getClass().getMethod(line.text);
+
+                        // 見つかったら実行！
+                        method.invoke(c);
+                    } catch (NoSuchMethodException e) {
+                        // メソッドが無ければ普通に喋る
+                        c.speak(line.text);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
             if (line == null)
                 break;
 
-            if (line.choices.size() == 1) {
+            if (line.choices.size() == 0 && line.next.size() == 1) {
                 currentId = line.next.get(0);
                 scanner.nextLine();
                 continue;

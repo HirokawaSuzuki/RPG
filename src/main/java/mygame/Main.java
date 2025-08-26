@@ -19,7 +19,6 @@ public class Main {
 
         Hero kentaro = new Hero("けんたろ",8,3,1);
         Chara monster = new Chara("スライム",10,5,2);
-        kentaro.battle(monster);
         List<Chara> characters = List.of(kentaro, monster);
         manager.playScene("line001", characters);
     }

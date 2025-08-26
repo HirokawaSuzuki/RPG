@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Serif {
     public String id;
-    public Chara speaker;
+    public String speaker;
     public String scene;
     public String text;
     public List<String> choices;

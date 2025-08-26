@@ -47,6 +47,19 @@ public class Chara {
 
     public int attack(Chara target){
         // 攻撃する関数を作成\
+        int damage = this.atk - target.def;
+        target.hp -= damage;
+        String attackText = this.name + "の攻撃！" + target.name + "に" + damage + "のダメージ！";
+        this.speak(attackText);
+        target.alve();
         return 0;
+    }
+
+    public void alve(){
+        if(this.hp <= 0){
+            speak(this.name + "は倒れた！");
+        } else {
+            System.out.println(this.name + "の残りHPは" + this.hp + "だ！");
+        }
     }
 }
