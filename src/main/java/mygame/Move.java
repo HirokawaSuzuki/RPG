@@ -6,7 +6,6 @@ public class Move{
 
     Map map = new Map();
     Random rand = new Random();
-    Battle battle = new Battle();
 
     public void walk() {
         Scanner scanner = new Scanner(System.in);

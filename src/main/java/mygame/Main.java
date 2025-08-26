@@ -14,12 +14,12 @@ public class Main {
         System.out.println("JSON読み込み成功。台詞数: " + dialogues.size());
 
         SerifManager manager = new SerifManager(dialogues);
-
         // 序盤：老人との会話シーン
 
-        Hero kentaro = new Hero("けんたろ",8,3,1);
+        Chara kentaro = new Chara("けんたろ",8,3,1);
         Chara monster = new Chara("スライム",10,5,2);
-        List<Chara> characters = List.of(kentaro, monster);
-        manager.playScene("line001", characters);
+        List<Chara> pCharas = List.of(kentaro);
+        List<Chara> eCharas = List.of(monster);
+        manager.playScene("line001", pCharas, eCharas);
     }
 }
