@@ -1,30 +1,33 @@
 [
+  {"id": "oldman001", "speaker": "老人", "scene": "村の広場", "text": "みない顔じゃの。名前はなんじゃ？", 
+  "choices": [ "けんたろう", "忘れた", "テメェに聞かせる名前はねぇ"], "next":["hero001","oldman002","oldman007"]},
+  {"id": "oldman002", "speaker": "老人", "scene": "村の広場", "text": "なんと…何も覚えておらんのか…災難じゃったな", 
+  "choices": ["ここは何処？", "おじいさんは誰？",  "お前の命もここまでだ"], "next":["oldman003","oldman003","oldman007"]},
+  {"id": "hero001", "speaker": "けんたろ", "scene": "村の広場", "text": "人は呼ぶ！そう！「けんたろ」と！！！", "choices": [], "next":["oldman004"]},
+  {"id": "oldman003", "speaker": "老人", "scene": "村の広場", "text": "ここは小さな村じゃ。わしはこの村の長老じゃよ。", 
+  "choices": ["よろしく","本当か？","殺すぞ"], "next":["oldman004", "oldman007", "oldman007"]},
+  {"id": "oldman004", "speaker": "老人", "scene": "村の広場", "text": "・・・よろしく頼むよ", 
+  "choices": ["ところで..."], "next":["hero002"]},
+  {"id": "hero002", "speaker": "けんたろ", "scene": "村の広場", "text": "ところでこの村...\n\nなんでアンタ以外誰もいないんだ？","next":["oldman005"]},
+  {"id": "oldman005", "speaker": "老人", "scene": "村の広場", "text": "・・・", 
+  "choices":["アンタ…ホントに人間か？","ここの村人はどこ行った？","ｵﾚﾊ ｸｻﾑ ｦﾑｯｺﾛｽ!!"], "next":["oldman006","oldman006","oldman006"]},
+  {"id": "oldman006", "speaker": "老人", "scene": "村の広場", "text": "君のような勘のいいガキは嫌いだよ...\n悪いが死んでもらおうか", 
+  "choices": ["な、ナニィ?!", "やはり魔物だったか","うるせぇ死ね！"], "next":["event001","event001","event001"]},
+  {"id": "oldman007", "speaker": "老人", "scene": "村の広場", "text": "…ならば生かしておけんな", "choices": [], "next":["battle001"]},
+  {"id": "event001", "speaker": "", "scene": "戦闘", "text": "そう言うが早いか\n老人はみるみる変貌していき\n見るも恐ろしい魔物となったーーー", "choices": [], "next":["battle001"]},
+
+
   {
-    "id": "line001",
-    "speaker": "老人",
-    "scene": "村の広場",
-    "text": "よぉ、旅人さん。どこから来たんだい？",
-    "choices": ["遠い東の国から来ました。", "ここら辺の出身です。","答えたくありません。"],
-    "next": ["line002", "line003", "line004"]
+    "id": "battle001", "speaker": "けんたろ", "scene":"戦闘", "text": "battleStatus",
+    "choices": ["こうげき", "ぼうぎょ", "にげる"],"next": ["attack", "defence", "escape"]
   },
-  {"id": "line002", "speaker": "老人", "scene": "村の広場", "text": "おお、はるばる来たんだな。道中はどうだった？", "choices": [], "next":["line004"]},
-  {"id": "line003", "speaker": "老人", "scene": "村の広場", "text": "そうか、なら昔話でも知ってるだろうな。", "choices": ["知ってる", "忘れちゃった"], "next":["line004","line005"]},
-  {"id": "line004", "speaker": "老人", "scene": "村の広場", "text": "ふむ…まぁ無理に聞きはせんよ。", "choices": [], "next":[]},
-  {"id": "line005", "speaker": "老人", "scene": "村の広場", "text": "つまりお主はこの村の伝説を知らない？", "choices": ["知ってる", "知らない"], "next":["line004","line006"]},
-  {"id": "line006", "speaker": "老人", "scene": "村の広場", "text": "ならば生かしておけんな", "choices": [], "next":["battle001"]},
-
-
-  {"id": "battle001", "speaker": "けんたろ", "scene":"チュートリアル戦闘", "text": "戦闘開始！！",
-   "choices": ["こうげき", "ぼうぎょ", "にげる"],
-    "next": ["attack", "defence", "escape"]
-  },
-  {"id": "attack", "speaker": "けんたろ", "scene":"チュートリアル戦闘", "text": "attack",
-   "choices": [], "next": []
-  },
-  {"id": "defence", "speaker": "けんたろ", "scene":"チュートリアル戦闘", "text": "defence",
-   "choices": [], "next": []
-  },
-  {"id": "escape", "speaker": "けんたろ", "scene":"チュートリアル戦闘", "text": "escape",
-   "choices": [], "next": []
-  }
+  {"id": "attack", "speaker": "けんたろ", "scene":"戦闘", "text": "attack","choices": [], "next": ["battle002"]},
+  {"id": "defence", "speaker": "けんたろ", "scene":"戦闘", "text": "defence","choices": [], "next": ["battle002"]},
+  {"id": "escape", "speaker": "けんたろ", "scene":"戦闘", "text": "escape","choices": [], "next": ["battle002"]},
+  {"id": "battle002", "speaker":"老人", "scene":"戦闘", "text":"battleStatus","choices":[], "next":["Eattack"]},
+  {"id": "Eattack", "speaker":"老人", "scene":"戦闘", "text":"attack","choices":[], "next":["battle001"]},
+  {"id": "win001", "speaker":"", "scene":"戦闘", "text":"君の勝利だ！","choices":[], "next":["end001"]},
+  {"id": "end001", "speaker":"", "scene":"エンディング", "text":"おめでとう！\n\nゲームクリア！","choices":[], "next":[]},
+  {"id": "lose001", "speaker":"", "scene":"戦闘", "text":"君は敗北した...","choices":[], "next":["end002"]},
+  {"id": "end002", "speaker":"", "scene":"エンディング", "text":"残念！\n\nゲームオーバー...","choices":[], "next":[]}
 ]

@@ -26,9 +26,9 @@ public class GameTest {
 
     @Test
     void testCharacterAttack() {
-        Chara hero = new Chara("勇者", 100, 20, 10);
+        Chara hero = new Chara("勇者", 100, 20, 10, "ally");
 
-        Chara mage = new Chara("魔法使い", 80, 30, 5);
+        Chara mage = new Chara("魔法使い", 80, 30, 5, "ally");
 
         hero.attack(mage);
         assertTrue(mage.hp < 80, "攻撃でHPが減っているはず");

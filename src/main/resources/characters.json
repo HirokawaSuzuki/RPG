@@ -1,0 +1,4 @@
+[
+    {"name" : "けんたろ" ,"hp" : 10,"atk" : 5, "def" : 2,"faction" : "ally"},
+    {"name" : "老人"     ,"hp" : 15,"atk" : 3, "def" : 1,"faction" : "enemy"}
+]

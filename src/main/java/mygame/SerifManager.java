@@ -10,29 +10,34 @@ import java.util.Scanner;
 
 public class SerifManager {
     private Map<String, Serif> dialogueMap = new HashMap<>();
+    public String currentId;
 
     public SerifManager(List<Serif> dialogues) {
         for (Serif line : dialogues) {
             dialogueMap.put(line.id, line);
         }
+        this.currentId = null;
     }
 
     public void playScene(String startId, List<Chara> allies, List<Chara> enemies) {
         Scanner scanner = new Scanner(System.in);
-        String currentId = startId;
+        this.currentId = startId;
 
-        while (currentId != null) {
-            Serif line = dialogueMap.get(currentId);
+        while (this.currentId != null) {
+            Serif line = dialogueMap.get(this.currentId);
             if (line == null)
                 break;
 
-            boolean acted = processLine(line, allies, enemies);
-
-            if (!acted) {
-                System.out.println(line.speaker + "：「" + line.text + "」");
+            int acted = processLine(line, allies, enemies, this.currentId);
+            if (acted == 0) {
+                if (line.speaker == null || line.speaker.isEmpty()) {
+                    System.out.println(line.text);
+                } else {
+                    System.out.println(line.speaker + "\n「" + line.text + "」");
+                }
             }
-            currentId = processChoices(line, scanner);
-            
+            if (acted != 2)this.currentId = processChoices(line, scanner);
+
             scanner.nextLine();
         }
 
@@ -40,7 +45,7 @@ public class SerifManager {
     }
 
     // 1行分の処理（喋る／メソッド呼び出し）
-    private boolean processLine(Serif line, List<Chara> allies, List<Chara> enemies) {
+    private int processLine(Serif line, List<Chara> allies, List<Chara> enemies, String currentId) {
         List<Chara> allCharacters = new ArrayList<>();
         allCharacters.addAll(allies);
         allCharacters.addAll(enemies);
@@ -49,16 +54,22 @@ public class SerifManager {
             if (line.speaker.equals(c.name)) {
                 Chara target = allies.contains(c) ? c.chooseTarget(enemies) : c.chooseAllyTarget(allies);
                 invokeMethodOrSpeak(c, line.text, target);
-                return true;
+                if (c.next != null && !c.next.isEmpty()) {
+                    this.currentId = c.next;
+                    c.next = null;
+                    return 2;
+                }
+                return 1;
             }
         }
-        return false;
+        return 0;
     }
 
     // メソッド呼び出しか喋るか
     private void invokeMethodOrSpeak(Chara c, String methodName, Chara target) {
         try {
             Method method = c.getClass().getMethod(methodName, Chara.class);
+
             method.invoke(c, target);
         } catch (NoSuchMethodException e1) {
             try {
@@ -88,7 +99,6 @@ public class SerifManager {
                 return null;
             }
         } else if ((line.choices == null || line.choices.isEmpty()) && line.next.size() == 1) {
-            // System.out.println("");
             return line.next.get(0);
         } else {
             return null;
